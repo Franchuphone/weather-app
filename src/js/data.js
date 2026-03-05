@@ -1,4 +1,5 @@
 import { format, parseISO } from "date-fns";
+import { showError } from "./UI";
 
 export async function fetchWeatherData( location = 'Budapest,HU' ) {
     const apiKey = 'MVVZVLRF7WWUPV7U7BZS5YYB5';
@@ -11,46 +12,52 @@ export async function fetchWeatherData( location = 'Budapest,HU' ) {
             throw new Error( `Error fetching weather data: ${ response.statusText }` );
         }
         const data = await response.json();
-        return parseWeatherData( data );
+        return filterWeatherData( data );
     } catch ( error ) {
-        console.error( 'Fetch Error:', error );
+        console.error( 'Fetch Error: ', error );
+        showError( "No location was found, try again with a different name" );
         if ( error.response ) {
             error.response.text().then( ( errorMessage ) => {
+                showError( "Connectivity issue, try again" )
                 console.error( 'Error Details:', errorMessage );
             } );
         }
     }
 }
 
-function parseWeatherData( data ) {
+function filterWeatherData( data ) {
     const date = new Date();
     const now = data.currentConditions;
     const today = data.days[ 0 ];
     // console.log( data.days[ 1 ] )
 
     return {
-        location: data.resolvedAddress,
+        location: cleanString( data.resolvedAddress ),
         fullDate: format( date, "EEEE d MMMM y" ),
         hour: format( date, "kk:mm" ),
-        temp: Math.round( now.temp ),
-        tempMax: Math.round( today.tempmax ),
-        tempMin: Math.round( today.tempmin ),
+        temp: cleanNumber( now.temp ),
+        tempMax: cleanNumber( today.tempmax ),
+        tempMin: cleanNumber( today.tempmin ),
         icon: now.icon,
         conditions: now.conditions,
-        rainProba: Math.round( today.precipprob ),
-        windSpeed: Math.round( today.windspeed ),
-        forecast: data.days.splice( 1, 5 ).map( ( day ) => ( {
+        rainProba: cleanNumber( today.precipprob ),
+        windSpeed: cleanNumber( today.windspeed ),
+        forecast: data.days.splice( 1, 6 ).map( ( day ) => ( {
             day: format( parseISO( day.datetime ), "EEE" ),
+            conditions: day.conditions,
             icon: day.icon,
-            tempMax: day.tempmax,
-            tempMin: day.tempmin,
+            tempMax: cleanNumber( day.tempmax ),
+            tempMin: cleanNumber( day.tempmin ),
         } ) )
     }
 }
 
 
-// export function getWeather( loc = 'Budapest,HU' ) {
-//     let weather = 2;
-//     fetchWeatherData( loc ).then( data => { return weather = data.address } )
-//     console.log( weather )
-// }
+function cleanString( string ) {
+    // string = string.substring( 0, string.indexOf( "," ) );
+    return string.charAt( 0 ).toUpperCase() + string.slice( 1 ).toLowerCase();
+}
+
+function cleanNumber( number ) {
+    return Math.round( number );
+}

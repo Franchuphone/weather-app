@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "webpack serve --open --config webpack.dev.js",
+    "dev": "webpack serve --open --config webpack.dev.js",
     "build": "webpack --config webpack.prod.js",
     "update": "git checkout prod && git merge main --no-edit",
     "commit": "git add dist -f && git commit -m 'Deployment commit'",

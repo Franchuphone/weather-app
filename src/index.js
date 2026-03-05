@@ -2,23 +2,40 @@ import "./css/modern-normalize.css"
 import "./css/main-style.css"
 import images from "/src/js/images.js";
 import { fetchWeatherData, getWeather } from "./js/data";
-import { displayWeather } from "./js/UI";
+import { changeBg, displaySearchBar, displayWeather, listenElements, showError } from "./js/UI";
 
 
-displayWeather()
+// getWeatherData( "toulouse" );
+
+displaySearchBar();
+
+const { input, inputButton } = listenElements();
 
 async function getWeatherData( location ) {
-    const data = await fetchWeatherData( location )
+    const data = await fetchWeatherData( location );
 
-    if ( data ) console.log( data )
+    if ( data ) {
+        console.log( data )
+        displayWeather( data )
+        changeBg( data.icon )
+    }
+
+    input.value = "";
 }
 
+function validateLocation( input ) {
 
-getWeatherData()
-// document.querySelectorAll( ".container > div > div" ).forEach( ( div ) => {
-//     const randomColor = Math.floor( Math.random() * 16777215 ).toString( 16 ).padStart( 6, '0' );
-//     const hexColor = `#${ randomColor }`;
-//     div.style.backgroundColor = hexColor;
-// } )
+    if ( !input.value ) {
+        showError( "It's not gonna work without data 🤷" )
+        return
+    }
 
-// for ( i = 0; i<=)
+    getWeatherData( input.value.trim() )
+}
+
+( () => {
+    inputButton.addEventListener( "click", () => validateLocation( input ) );
+    input.addEventListener( "keydown", ( e ) => {
+        if ( e.key === "Enter" ) validateLocation( input );
+    } );
+} )();
