@@ -24,7 +24,10 @@ The Weather App is a clean and efficient web application designed to provide use
 
 ## 🔧 Future improvements
 
-- 🎯 **Add colour to expired tasks**: quickly see if tasks are expired or not.
+- 🎯 **Add selection of location**: enables displaying a choice of locations based on current user input
+- 🎯 **Upgrade UX**: add some functionnality on main weather display to upgrade readability and usability for users
+- 🎯 **Toggle weather forecast**: change display of forecast from day on day to hour on hour by a simple clic
+- 🎯 **Bugs tracking**: fixing some minors bugs on display rendering based on users feedback
 
 ## 🛠️ Tech Stack
 
