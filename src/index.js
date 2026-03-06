@@ -36,6 +36,9 @@ function validateLocation( input ) {
 ( () => {
     inputButton.addEventListener( "click", () => validateLocation( input ) );
     input.addEventListener( "keydown", ( e ) => {
-        if ( e.key === "Enter" ) validateLocation( input );
+        if ( e.key === "Enter" ) {
+            validateLocation( input );
+            e.target.blur();
+        }
     } );
 } )();
