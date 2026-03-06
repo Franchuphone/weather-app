@@ -34,8 +34,15 @@ body {
     min-height: 100vh;
     flex-direction: column;
     place-content: center;
-    background-size: cover;
-    background-repeat: no-repeat;
+    -ms-overflow-style: none;
+}
+
+::-webkit-scrollbar {
+    display: none;
+}
+
+::-webkit-scrollbar-button {
+    display: none;
 }
 
 button {
@@ -54,44 +61,44 @@ a {
     margin-left: 1rem;
 }
 
+
+
 .default {
     background: linear-gradient(145deg, transparent 0%, var(--color-pri-t) 30%, var(--color-pri) 60%),
         url("../img/nocturn-sky.jpg");
-    background-size: cover;
-    background-repeat: no-repeat;
 }
 
 .clear {
     background: linear-gradient(145deg, transparent 0%, var(--color-pri-t) 30%, var(--color-pri) 60%),
         url("../img/Clear.jpg");
-    background-size: cover;
-    background-repeat: no-repeat;
 }
 
 .cloud {
     background: linear-gradient(145deg, transparent 0%, var(--color-pri-t) 30%, var(--color-pri) 60%),
         url("../img/cloud.jpg");
-    background-size: cover;
-    background-repeat: no-repeat;
 }
 
 .rain {
     background: linear-gradient(145deg, transparent 0%, var(--color-pri-t) 30%, var(--color-pri) 60%),
         url("../img/Rain.jpg");
-    background-size: cover;
-    background-repeat: no-repeat;
 }
 
 .storm {
     background: linear-gradient(145deg, transparent 0%, var(--color-pri-t) 30%, var(--color-pri) 60%),
         url("../img/Storm.jpg");
-    background-size: cover;
-    background-repeat: no-repeat;
 }
 
 .partly {
     background: linear-gradient(145deg, transparent 0%, var(--color-pri-t) 30%, var(--color-pri) 60%),
         url("../img/partly.jpg");
+}
+
+.defautlt,
+.clear,
+.cloud,
+.rain,
+.storm,
+.partly {
     background-size: cover;
     background-repeat: no-repeat;
 }
@@ -344,6 +351,22 @@ footer {
     align-items: center;
 }
 
+.animate-search {
+    animation: slideIn 1s ease;
+}
+
+
+@keyframes slideIn {
+    from {
+        opacity: 30%;
+        transform: translateY(50vh);
+    }
+
+    to {
+        opacity: 100%;
+        transform: translateY(0);
+    }
+}
 
 @media (min-width:900px) {
 

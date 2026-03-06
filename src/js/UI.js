@@ -7,7 +7,7 @@ let conditions = [
 ]
 
 export function displayWeather( data ) {
-    const { weatherContainer, welcomeMsg, alertBox } = listenElements();
+    const { weatherContainer, welcomeMsg, alertBox, inputDiv } = listenElements();
     if ( welcomeMsg ) welcomeMsg.remove();
     if ( alertBox ) alertBox.remove();
     let html = mainCard;
@@ -32,6 +32,8 @@ export function displayWeather( data ) {
     // console.log( html )
     weatherContainer.innerHTML = "";
     weatherContainer.innerHTML = html;
+    weatherContainer.classList.add( "animate-search" );
+    inputDiv.classList.add( "animate-search" );
     toggleFahrenheitCelsius();
 }
 
