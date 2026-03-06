@@ -54,8 +54,9 @@ export function listenElements() {
     const tempBoxes = document.querySelectorAll( "#temp-number" );
     const tempUnitBox = document.querySelector( "#temp-unit" );
     const tempBtn = document.querySelector( "#temp" );
+    const bodyDivs = document.querySelectorAll( "body *:not(.display-container)" );
 
-    return { input, inputButton, inputDiv, container, weatherContainer, body, welcomeMsg, alertBox, tempBoxes, tempUnitBox, tempBtn }
+    return { input, inputButton, inputDiv, container, weatherContainer, body, welcomeMsg, alertBox, tempBoxes, tempUnitBox, tempBtn, bodyDivs }
 }
 
 export function showError( message ) {

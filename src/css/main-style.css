@@ -61,8 +61,6 @@ a {
     margin-left: 1rem;
 }
 
-
-
 .default {
     background: linear-gradient(145deg, transparent 0%, var(--color-pri-t) 30%, var(--color-pri) 60%),
         url("../img/nocturn-sky.jpg");
@@ -109,6 +107,17 @@ a {
     background-size: cover;
     background-repeat: no-repeat;
 } */
+
+/* .container {
+    position: relative;
+    margin: auto;
+} */
+
+.display-container {
+    position: relative;
+    margin: auto;
+    width: 100%;
+}
 
 .hello-message {
     margin: auto;
@@ -353,6 +362,21 @@ footer {
 
 .animate-search {
     animation: slideIn 1s ease;
+}
+
+.blur {
+    filter: blur(5px);
+}
+
+.loading-gif {
+    position: absolute;
+    bottom: -20vh;
+    right: calc(50% - 3em);
+    width: 5em;
+    aspect-ratio: 1 / 1;
+    filter: blur(0);
+    filter: none;
+    z-index: 10;
 }
 
 

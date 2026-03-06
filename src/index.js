@@ -1,25 +1,25 @@
-import "./css/modern-normalize.css"
-import "./css/main-style.css"
+import "./css/modern-normalize.css";
+import "./css/main-style.css";
 import images from "/src/js/images.js";
 import { fetchWeatherData, getWeather } from "./js/data";
 import { changeBg, displaySearchBar, displayWeather, listenElements, showError } from "./js/UI";
+import loadingGif from "./templates/loading-gif";
 
 
-// getWeatherData( "toulouse" );
+
 
 displaySearchBar();
 
-const { input, inputButton } = listenElements();
+const { input, inputButton, weatherContainer, body } = listenElements();
 
 async function getWeatherData( location ) {
+    weatherContainer.innerHTML = loadingGif;
     const data = await fetchWeatherData( location );
-
+    weatherContainer.innerHTML = "";
     if ( data ) {
-        console.log( data )
         displayWeather( data )
         changeBg( data.icon )
     }
-
     input.value = "";
 }
 
