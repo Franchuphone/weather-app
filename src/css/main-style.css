@@ -108,16 +108,7 @@ a {
     background-repeat: no-repeat;
 } */
 
-/* .container {
-    position: relative;
-    margin: auto;
-} */
 
-.display-container {
-    position: relative;
-    margin: auto;
-    width: 100%;
-}
 
 .hello-message {
     margin: auto;
@@ -370,12 +361,9 @@ footer {
 
 .loading-gif {
     position: absolute;
-    left: 2vh;
-    width: 3em;
+    left: 2%;
+    height: 90%;
     aspect-ratio: 1 / 1;
-    /* filter: blur(0);
-    filter: none;
-    z-index: 10; */
 }
 
 

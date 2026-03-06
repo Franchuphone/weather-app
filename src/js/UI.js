@@ -31,7 +31,6 @@ export function displayWeather( data ) {
             html = html.replaceAll( `{{${ key }}}`, data[ key ] );
         }
     } )
-    // console.log( html )
     weatherContainer.innerHTML = "";
     weatherContainer.innerHTML = html;
     weatherContainer.classList.add( "animate-search" );
@@ -56,9 +55,8 @@ export function listenElements() {
     const tempBoxes = document.querySelectorAll( "#temp-number" );
     const tempUnitBox = document.querySelector( "#temp-unit" );
     const tempBtn = document.querySelector( "#temp" );
-    const bodyDivs = document.querySelectorAll( "body *:not(.display-container)" );
 
-    return { input, inputButton, inputDiv, container, weatherContainer, body, welcomeMsg, alertBox, tempBoxes, tempUnitBox, tempBtn, bodyDivs }
+    return { input, inputButton, inputDiv, container, weatherContainer, body, welcomeMsg, alertBox, tempBoxes, tempUnitBox, tempBtn }
 }
 
 export function showError( message ) {
@@ -90,7 +88,6 @@ export function createGif() {
 function toggleFahrenheitCelsius() {
     const { tempBoxes, tempBtn, tempUnitBox } = listenElements();
     tempBtn.addEventListener( "click", () => {
-        console.log( tempBoxes, tempBtn, tempUnitBox )
         if ( tempBtn.className === "fahrenheit" ) {
             tempBoxes.forEach( ( temp ) => {
                 temp.textContent = Math.round( ( temp.textContent - 32 ) / 1.8 )
@@ -110,7 +107,6 @@ function toggleFahrenheitCelsius() {
 }
 
 function handleCondition( dayCondition ) {
-    console.log( dayCondition )
     conditions.forEach( condition => {
         if ( dayCondition.includes( condition ) ) {
             return dayCondition = condition

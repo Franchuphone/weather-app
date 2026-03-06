@@ -3,14 +3,13 @@ import "./css/main-style.css";
 import images from "/src/js/images.js";
 import { fetchWeatherData, getWeather } from "./js/data";
 import { changeBg, createGif, displaySearchBar, displayWeather, listenElements, showError } from "./js/UI";
-import loadingGif from "./templates/loading-gif";
 
 
 
 
 displaySearchBar();
 
-const { input, inputButton, weatherContainer, body } = listenElements();
+const { input, inputButton } = listenElements();
 
 async function getWeatherData( location ) {
     const gifDiv = createGif();

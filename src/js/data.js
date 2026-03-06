@@ -29,7 +29,6 @@ function filterWeatherData( data ) {
     const date = new Date();
     const now = data.currentConditions;
     const today = data.days[ 0 ];
-    // console.log( data.days[ 1 ] )
 
     return {
         location: cleanString( data.resolvedAddress ),
