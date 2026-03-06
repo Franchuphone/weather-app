@@ -1,14 +1,15 @@
-import mainCard from "../templates/weather-main.html"
-import searchBar from "../templates/search-bar.html"
-import forecastCard from "../templates/forecast-card.html"
+import mainCard from "../templates/weather-main.js"
+import searchBar from "../templates/search-bar.js"
+import forecastCard from "../templates/forecast-card.js"
 
 let conditions = [
-    "rain", "clear", "snow", "cloud", "wind", "storm",
+    "partly", "rain", "clear", "snow", "cloud", "wind", "storm",
 ]
 
 export function displayWeather( data ) {
-    const { weatherContainer, welcomeMsg } = listenElements();
+    const { weatherContainer, welcomeMsg, alertBox } = listenElements();
     if ( welcomeMsg ) welcomeMsg.remove();
+    if ( alertBox ) alertBox.remove();
     let html = mainCard;
     let forecastDivs = "";
     Object.keys( data ).forEach( ( key ) => {
@@ -17,18 +18,21 @@ export function displayWeather( data ) {
                 const forecast = data[ key ][ i ];
                 let forecastHtml = forecastCard;
                 Object.keys( forecast ).forEach( ( key ) => {
+                    if ( key === "icon" ) forecast[ key ] = handleCondition( forecast[ key ] );
                     forecastHtml = forecastHtml.replace( `{{${ key }}}`, forecast[ key ] );
                 } )
                 forecastDivs += forecastHtml;
             }
             html = html.replace( "{{weatherForecast}}", forecastDivs );
         } else {
+            if ( key === "icon" ) data[ key ] = handleCondition( data[ key ] );
             html = html.replaceAll( `{{${ key }}}`, data[ key ] );
         }
     } )
-    console.log( html )
+    // console.log( html )
     weatherContainer.innerHTML = "";
     weatherContainer.innerHTML = html;
+    toggleFahrenheitCelsius();
 }
 
 export function displaySearchBar() {
@@ -44,8 +48,12 @@ export function listenElements() {
     const weatherContainer = document.querySelector( ".display-container" );
     const body = document.querySelector( "body" );
     const welcomeMsg = document.querySelector( ".hello-message" );
+    const alertBox = document.querySelector( ".alert-box" );
+    const tempBoxes = document.querySelectorAll( "#temp-number" );
+    const tempUnitBox = document.querySelector( "#temp-unit" );
+    const tempBtn = document.querySelector( "#temp" );
 
-    return { input, inputButton, inputDiv, container, weatherContainer, body, welcomeMsg }
+    return { input, inputButton, inputDiv, container, weatherContainer, body, welcomeMsg, alertBox, tempBoxes, tempUnitBox, tempBtn }
 }
 
 export function showError( message ) {
@@ -64,13 +72,34 @@ export function changeBg( dayCondition ) {
     if ( !testCssExists( "." + status ) ) body.className = "default"
 }
 
-function changeIcon( dayCondition ) {
+function toggleFahrenheitCelsius() {
+    const { tempBoxes, tempBtn, tempUnitBox } = listenElements();
+    tempBtn.addEventListener( "click", () => {
+        console.log( tempBoxes, tempBtn, tempUnitBox )
+        if ( tempBtn.className === "fahrenheit" ) {
+            tempBoxes.forEach( ( temp ) => {
+                temp.textContent = Math.round( ( temp.textContent - 32 ) / 1.8 )
+            } );
+            tempUnitBox.textContent = "°C";
+            tempBtn.className = "celsius";
+
+        } else {
+            tempBoxes.forEach( ( temp ) => {
+                temp.textContent = Math.round( temp.textContent * 1.8 + 32 );
+            } );
+            tempUnitBox.textContent = "°F";
+            tempBtn.className = "fahrenheit";
+        }
+    } )
 
 }
 
 function handleCondition( dayCondition ) {
+    console.log( dayCondition )
     conditions.forEach( condition => {
-        if ( dayCondition.includes( condition ) ) { dayCondition = condition }
+        if ( dayCondition.includes( condition ) ) {
+            return dayCondition = condition
+        }
     } )
     cleanString( dayCondition );
     return dayCondition;
