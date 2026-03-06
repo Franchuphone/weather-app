@@ -370,13 +370,12 @@ footer {
 
 .loading-gif {
     position: absolute;
-    bottom: -20vh;
-    right: calc(50% - 3em);
-    width: 5em;
+    left: 2vh;
+    width: 3em;
     aspect-ratio: 1 / 1;
-    filter: blur(0);
+    /* filter: blur(0);
     filter: none;
-    z-index: 10;
+    z-index: 10; */
 }
 
 

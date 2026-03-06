@@ -2,7 +2,7 @@ import "./css/modern-normalize.css";
 import "./css/main-style.css";
 import images from "/src/js/images.js";
 import { fetchWeatherData, getWeather } from "./js/data";
-import { changeBg, displaySearchBar, displayWeather, listenElements, showError } from "./js/UI";
+import { changeBg, createGif, displaySearchBar, displayWeather, listenElements, showError } from "./js/UI";
 import loadingGif from "./templates/loading-gif";
 
 
@@ -13,9 +13,9 @@ displaySearchBar();
 const { input, inputButton, weatherContainer, body } = listenElements();
 
 async function getWeatherData( location ) {
-    weatherContainer.innerHTML = loadingGif;
+    const gifDiv = createGif();
     const data = await fetchWeatherData( location );
-    weatherContainer.innerHTML = "";
+    gifDiv.remove();
     if ( data ) {
         displayWeather( data )
         changeBg( data.icon )

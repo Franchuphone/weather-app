@@ -1,6 +1,8 @@
-import mainCard from "../templates/weather-main.js"
-import searchBar from "../templates/search-bar.js"
-import forecastCard from "../templates/forecast-card.js"
+import mainCard from "../templates/weather-main.js";
+import searchBar from "../templates/search-bar.js";
+import forecastCard from "../templates/forecast-card.js";
+import images from "/src/js/images.js";
+
 
 let conditions = [
     "partly", "rain", "clear", "snow", "cloud", "wind", "storm",
@@ -73,6 +75,16 @@ export function changeBg( dayCondition ) {
     const status = handleCondition( dayCondition );
     body.className = `${ status }`;
     if ( !testCssExists( "." + status ) ) body.className = "default"
+}
+
+export function createGif() {
+    const { inputDiv } = listenElements();
+    const img = document.createElement( "img" );
+    img.src = images[ "loading.gif" ];
+    img.alt = "loading icon";
+    img.className = "loading-gif";
+    inputDiv.append( img );
+    return img;
 }
 
 function toggleFahrenheitCelsius() {
