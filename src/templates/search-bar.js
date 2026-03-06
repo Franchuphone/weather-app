@@ -4,7 +4,7 @@ const searchBar = `</search>
 </div>
 <div class="search-container initial-position">
     <input type="text" id="search-location" placeholder="Search location">
-    <img src="../img/cloud-search.svg" alt="search" id="search-button">
+    <img src="./img/cloud-search.svg" alt="search" id="search-button">
 </div>
 <div class="display-container">
 

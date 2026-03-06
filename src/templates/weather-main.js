@@ -13,15 +13,15 @@ const mainCard = `<div class="weather-container">
             </button>
         </div>
         <div class="conditions">
-            <img src="../img/{{icon}}.svg" alt="{{icon}} icon">
+            <img src="./img/{{icon}}.svg" alt="{{icon}} icon">
             <div class="conditions-text">{{conditions}}</div>
         </div>
         <div class="rain-proba">
-            <img src="../img/weather-rainy.svg" alt="rain icon">
+            <img src="./img/weather-rainy.svg" alt="rain icon">
             <div class="rain-proba-text">{{rainProba}} %</div>
         </div>
         <div class="wind-speed">
-            <img src="../img/weather-windy.svg" alt="wind icon">
+            <img src="./img/weather-windy.svg" alt="wind icon">
             <div class="wind-speed-text">{{windSpeed}} km/h</div>
         </div>
     </div>
