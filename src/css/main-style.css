@@ -195,10 +195,7 @@ a {
     grid-area: 1 / 1 / 2 / -1;
     display: grid;
     grid-template: 1fr 2fr / 1fr 1fr;
-
-    :first-child {
-        grid-column: span 2;
-    }
+    font-size: calc(1.2 * var(--size-pri));
 
     > div {
         display: flex;
@@ -206,6 +203,7 @@ a {
         align-items: center;
         text-align: center;
         padding: calc(0.5 * var(--size-pri));
+
 
         * {
             transition: transform 0.5s ease;
@@ -224,10 +222,16 @@ a {
     }
 }
 
+.weather-header1 {
+    grid-area: 2 / 1 / 3 / 2;
+}
 
-.weather-header1 div {
+
+.weather-header2 {
     font-size: calc(2*var(--size-pri));
     font-weight: 700;
+    line-height: 1em;
+    grid-area: 1 / 1 / 2 / -1;
 }
 
 .weather-current {
@@ -240,15 +244,27 @@ a {
     }
 
     button {
+        grid-area: 1 / 1 / -1 / -1;
         padding: 0;
         font-size: calc(2.5 * var(--size-pri));
         font-weight: 700;
+        display: grid;
+        grid-template-rows: subgrid;
+
+        :first-child {
+            place-self: center;
+        }
     }
 
     > div {
         display: grid;
         grid-template-rows: 2fr 1fr;
         place-items: center;
+
+        :nth-child(2) {
+            align-self: flex-start;
+            font-size: calc(1.3 * var(--size-pri));
+        }
 
         * {
             flex: 1;
@@ -266,7 +282,7 @@ a {
     }
 }
 
-.temp-all,
+/* .temp-all,
 .current-conditions,
 .rain-proba,
 .wind-speed {
@@ -274,7 +290,7 @@ a {
         align-self: flex-start;
         font-size: calc(1.3 * var(--size-pri));
     }
-}
+} */
 
 .weather-forecast {
     grid-area: 3 / 1 / 4 / -1;
@@ -336,10 +352,15 @@ footer {
     .weather-header {
         display: grid;
         grid-template: 1fr / repeat(3, 1fr);
+    }
 
-        :first-child {
-            grid-column: span 1;
-        }
+    .weather-header1 {
+        grid-column: span 1;
+        grid-area: 1 / 1 / 2 / 2;
+    }
+
+    .weather-header2 {
+        grid-column: span 1;
     }
 
     .weather-current {

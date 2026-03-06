@@ -1,0 +1,31 @@
+<div class="weather-container">
+    <div class="weather-header">
+        <div class="weather-header1">{{fullDate}}</div>
+        <div class="weather-header2">{{location}}</div>
+        <div class="weather-header3">{{hour}}</div>
+    </div>
+    <div class="weather-current">
+        <div class="temp-all">
+            <button id="temp">
+                <div class="temp-current"><span id="temp-number">{{temp}}</span><span id="temp-text">°C</span></div>
+                <div class="temp-max-min"><span id="temp-number">{{tempMin}}</span> / <span
+                        id="temp-number">{{tempMax}}</span></div>
+            </button>
+        </div>
+        <div class="conditions">
+            <img src="../img/weather-tornado.svg" alt="tornado icon">
+            <div class="conditions-text">{{conditions}}</div>
+        </div>
+        <div class="rain-proba">
+            <img src="../img/weather-rainy.svg" alt="rain icon">
+            <div class="rain-proba-text">{{rainProba}} %</div>
+        </div>
+        <div class="wind-speed">
+            <img src="../img/weather-windy.svg" alt="wind icon">
+            <div class="wind-speed-text">{{windSpeed}} km/h</div>
+        </div>
+    </div>
+    <div class="weather-forecast">
+        {{weatherForecast}}
+    </div>
+</div>

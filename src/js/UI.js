@@ -29,8 +29,6 @@ export function displayWeather( data ) {
     console.log( html )
     weatherContainer.innerHTML = "";
     weatherContainer.innerHTML = html;
-
-
 }
 
 export function displaySearchBar() {
