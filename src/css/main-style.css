@@ -318,6 +318,10 @@ a {
     align-self: first baseline;
 }
 
+.forecast-tempMaxMin {
+    display: block;
+}
+
 .weather-header,
 .weather-current,
 .weather-forecast {

@@ -7,9 +7,9 @@ const mainCard = `<div class="weather-container">
     <div class="weather-current">
         <div class="temp-all">
             <button id="temp" class="celsius">
-                <div class="temp-current"><span id="temp-number">{{temp}}</span><span id="temp-unit"></span></div>
-                <div class="temp-max-min"><span id="temp-number">{{tempMin}}</span> / <span
-                        id="temp-number">{{tempMax}}</span></div>
+                <div class="temp-current"><span id="temp-number">{{temp}}</span><span id="temp-unit">°C</span></div>
+                <div class="temp-max-min"><span id="temp-number">{{tempMin}}</span>° / <span
+                        id="temp-number">{{tempMax}}</span>°</div>
             </button>
         </div>
         <div class="conditions">
