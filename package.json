@@ -1,5 +1,5 @@
 {
-  "name": "template",
+  "name": "weather-app",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -13,13 +13,13 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Franchuphone/template.git"
+    "url": "git+https://github.com/Franchuphone/weather-app.git"
   },
   "keywords": [],
-  "author": "",
+  "author": "Franchuphone",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/Franchuphone/template/issues"
+    "url": "https://github.com/Franchuphone/weather-app/issues"
   },
   "homepage": "",
   "devDependencies": {
