@@ -28,6 +28,6 @@ const mainCard = `<div class="weather-container">
     <div class="weather-forecast">
         {{weatherForecast}}
     </div>
-</div>`
+</div>`;
 
 export default mainCard;

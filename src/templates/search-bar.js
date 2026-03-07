@@ -8,6 +8,6 @@ const searchBar = `</search>
 </div>
 <div class="display-container">
 
-</div>`
+</div>`;
 
 export default searchBar;

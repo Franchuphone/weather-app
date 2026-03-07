@@ -16,11 +16,11 @@ The Weather App is a clean and efficient web application designed to provide use
 
 ## ✨ Features
 
--   🌍 **Location-Based Weather Display**: Get current weather details for any specified city or location.
--   🌡️ **Detailed Weather Conditions**: View temperature, weather description, and other relevant metrics.
--   📅 **Date and Time Utility**: Utilizes `date-fns` for robust date and time formatting, enhancing forecast readability.
--   🛠️ **Modern JavaScript Toolchain**: Developed with Webpack 5, Babel, and ESLint for a streamlined development experience and high code quality.
--   modular **Organized Codebase**: A clear project structure ensures maintainability and scalability.
+- 🌍 **Location-Based Weather Display**: Get current weather details for any specified city or location.
+- 🌡️ **Detailed Weather Conditions**: View temperature, weather description, and other relevant metrics.
+- 📅 **Date and Time Utility**: Utilizes `date-fns` for robust date and time formatting, enhancing forecast readability.
+- 🛠️ **Modern JavaScript Toolchain**: Developed with Webpack 5, Babel, and ESLint for a streamlined development experience and high code quality.
+- modular **Organized Codebase**: A clear project structure ensures maintainability and scalability.
 
 ## 🔧 Future improvements
 
@@ -50,12 +50,14 @@ Before you begin, ensure you have the following installed:
 ### Installation
 
 1.  **Clone the repository**
+
     ```bash
     git clone https://github.com/Franchuphone/weather-app.git
     cd weather-app
     ```
 
 2.  **Install dependencies**
+
     ```bash
     npm install
     ```
@@ -68,9 +70,11 @@ Before you begin, ensure you have the following installed:
     # .env
     WEATHER_API_KEY=your_actual_api_key_here
     ```
-    *Ensure you replace `your_actual_api_key_here` with your valid API key.*
+
+    _Ensure you replace `your_actual_api_key_here` with your valid API key._
 
 4.  **Start development server**
+
     ```bash
     npm run dev
     ```
@@ -99,32 +103,38 @@ weather-app/
 ## ⚙️ Configuration
 
 ### Environment Variables
+
 The application expects an API key for the weather service to be available in the environment.
 
-| Variable        | Description                              | Default | Required |
-|-----------------|------------------------------------------|---------|----------|
+| Variable          | Description                                 | Default | Required |
+| ----------------- | ------------------------------------------- | ------- | -------- |
 | `WEATHER_API_KEY` | Your API key for the chosen weather service | None    | Yes      |
 
 ### Configuration Files
--   `webpack.common.js`, `webpack.dev.js`, `webpack.prod.js`: Control the entire build process, including JavaScript transpilation, CSS processing, and asset management.
--   `babel.config.json`: Configures Babel to transpile modern JavaScript features for wider browser compatibility.
--   `eslint.config.mjs`: Defines code style rules and best practices enforced by ESLint to maintain code quality.
+
+- `webpack.common.js`, `webpack.dev.js`, `webpack.prod.js`: Control the entire build process, including JavaScript transpilation, CSS processing, and asset management.
+- `babel.config.json`: Configures Babel to transpile modern JavaScript features for wider browser compatibility.
+- `eslint.config.mjs`: Defines code style rules and best practices enforced by ESLint to maintain code quality.
 
 ## 🚀 Deployment
 
 ### Production Build
+
 To create a minified and optimized production build of the application:
 
 ```bash
 npm run build
 ```
+
 This command will compile all assets and output them into the `dist/` directory, ready for deployment.
 
 ### Deployment Options
+
 The `dist/` directory contains all the static files required to run the application. You can deploy these files to any static hosting service, such as:
--   **GitHub Pages**: Push the `dist` folder content to a `gh-pages` branch.
--   **Vercel/Netlify**: These services can automatically detect the build process and deploy the `dist` folder.
--   **Any Web Server**: Simply copy the contents of the `dist` folder to your web server's public directory.
+
+- **GitHub Pages**: Push the `dist` folder content to a `gh-pages` branch.
+- **Vercel/Netlify**: These services can automatically detect the build process and deploy the `dist` folder.
+- **Any Web Server**: Simply copy the contents of the `dist` folder to your web server's public directory.
 
 ## 🤝 Contributing
 
@@ -136,6 +146,7 @@ We welcome contributions to the Weather App! If you're interested in improving t
 4.  Push your branch and open a pull request.
 
 ### Development Setup for Contributors
+
 The development setup is straightforward, as outlined in the [Quick Start](#🚀-quick-start) section. Ensure you have Node.js and npm installed, and then follow the installation steps.
 
 ## 📄 License
@@ -144,15 +155,15 @@ No particular license, just keep in mind to respect the work of others and just 
 
 ## 🙏 Acknowledgments
 
--   **[date-fns](https://date-fns.org/)**: For providing a comprehensive and easy-to-use library for date manipulation.
--   **[Webpack](https://webpack.js.org/)**: For the powerful and flexible module bundler.
--   **[Babel](https://babeljs.io/)**: For enabling the use of modern JavaScript features.
+- **[date-fns](https://date-fns.org/)**: For providing a comprehensive and easy-to-use library for date manipulation.
+- **[Webpack](https://webpack.js.org/)**: For the powerful and flexible module bundler.
+- **[Babel](https://babeljs.io/)**: For enabling the use of modern JavaScript features.
 
 ## 📞 Support & Contact
 
--   🐛 Issues: [GitHub Issues](https://github.com/Franchuphone/weather-app/issues)
--   👤 Author: [Franchuphone](https://github.com/Franchuphone)
--   📧 Contact: [LinkedIn](https://chk.me/fDTZdvK)
+- 🐛 Issues: [GitHub Issues](https://github.com/Franchuphone/weather-app/issues)
+- 👤 Author: [Franchuphone](https://github.com/Franchuphone)
+- 📧 Contact: [LinkedIn](https://chk.me/fDTZdvK)
 
 ---
 
