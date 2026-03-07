@@ -72,7 +72,7 @@ Before you begin, ensure you have the following installed:
 
 4.  **Start development server**
     ```bash
-    npm start
+    npm run dev
     ```
 
 5.  **Open your browser**
@@ -109,11 +109,6 @@ The application expects an API key for the weather service to be available in th
 -   `webpack.common.js`, `webpack.dev.js`, `webpack.prod.js`: Control the entire build process, including JavaScript transpilation, CSS processing, and asset management.
 -   `babel.config.json`: Configures Babel to transpile modern JavaScript features for wider browser compatibility.
 -   `eslint.config.mjs`: Defines code style rules and best practices enforced by ESLint to maintain code quality.
-
-### Development Workflow
--   Run `npm start` to begin development. This command leverages `webpack-dev-server` to provide live reloading and a convenient development environment.
--   Make changes in the `src/` directory. Webpack will automatically recompile and refresh your browser.
--   ESLint is configured to help maintain code quality. Ensure your editor integrates with ESLint or run it manually.
 
 ## 🚀 Deployment
 
