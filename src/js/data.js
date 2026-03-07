@@ -28,7 +28,7 @@ export async function fetchWeatherData( location = 'Budapest,HU' ) {
 
 function filterWeatherData( data ) {
     const date = new Date();
-    const localDate = date.toLocaleString( ( 'fr-fr' ), { timeZone: data.timezone } )
+    const localDate = date.toLocaleString( ( 'en-en' ), { timeZone: data.timezone } )
     console.log( localDate )
     const now = data.currentConditions;
     const today = data.days[ 0 ];
