@@ -12,6 +12,7 @@ export async function fetchWeatherData( location = 'Budapest,HU' ) {
             throw new Error( `Error fetching weather data: ${ response.statusText }` );
         }
         const data = await response.json();
+        console.log( data )
         return filterWeatherData( data );
     } catch ( error ) {
         console.error( 'Fetch Error: ', error );
@@ -27,13 +28,15 @@ export async function fetchWeatherData( location = 'Budapest,HU' ) {
 
 function filterWeatherData( data ) {
     const date = new Date();
+    const localDate = date.toLocaleString( ( 'fr-fr' ), { timeZone: data.timezone } )
+    console.log( localDate )
     const now = data.currentConditions;
     const today = data.days[ 0 ];
 
     return {
         location: cleanString( data.resolvedAddress ),
-        fullDate: format( date, "EEEE d MMMM y" ),
-        hour: format( date, "kk:mm" ),
+        fullDate: format( localDate, "EEEE d MMMM y" ),
+        hour: format( localDate, "kk:mm" ),
         temp: cleanNumber( now.temp ),
         tempMax: cleanNumber( today.tempmax ),
         tempMin: cleanNumber( today.tempmin ),
