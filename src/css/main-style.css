@@ -278,11 +278,11 @@ a {
 
 .weather-header2 {
   grid-area: 1 / 1 / 2 / -1;
+  position: relative;
 
   > div {
     font-size: calc(2 * var(--size-pri));
     font-weight: 700;
-    max-width: 20ch;
     overflow: hidden;
     white-space: nowrap;
     text-overflow: ellipsis;
@@ -292,6 +292,13 @@ a {
     overflow: visible;
     position: absolute;
     white-space: wrap;
+    color: var(--color-qua);
+    background-color: var(--color-sec);
+    max-width: 80%;
+    text-wrap: balance;
+    padding: 0.3em;
+    top: 0;
+    z-index: 1;
   }
 }
 
@@ -455,6 +462,10 @@ footer {
 
   .weather-header2 {
     grid-column: span 1;
+
+    > div {
+      max-width: 20ch;
+    }
   }
 
   .weather-current {
