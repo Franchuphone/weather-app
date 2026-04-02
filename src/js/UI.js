@@ -3,6 +3,7 @@ import searchBar from "../templates/search-bar.js";
 import forecastCard from "../templates/forecast-card.js";
 import images from "/src/js/images.js";
 
+// Weather variables for dynamic display of icons and bgs
 let conditions = ["partly", "rain", "clear", "snow", "cloud", "wind", "storm"];
 
 export function displayWeather(data) {
@@ -12,6 +13,7 @@ export function displayWeather(data) {
   let html = mainCard;
   let forecastDivs = "";
   Object.keys(data).forEach((key) => {
+    // Check weather datas for forecasts objects (sub-objects)
     if (typeof data[key] === "object") {
       for (let i = 0; i < data[key].length; i++) {
         const forecast = data[key][i];
@@ -40,6 +42,7 @@ export function displaySearchBar() {
   container.innerHTML = searchBar;
 }
 
+// Group all query selectors for an easy destructuring recall
 export function listenElements() {
   const input = document.querySelector("#search-location");
   const inputButton = document.querySelector("#search-button");
@@ -113,6 +116,7 @@ function toggleFahrenheitCelsius() {
   });
 }
 
+// Handle the dynamic change of icons and bgs
 function handleCondition(dayCondition) {
   conditions.forEach((condition) => {
     if (dayCondition.includes(condition)) {
@@ -123,14 +127,15 @@ function handleCondition(dayCondition) {
   return dayCondition;
 }
 
+// Test to prevent a blank bg on dynamic change
 function testCssExists(cssRule) {
-  let bool = false;
+  let cssExists = false;
   for (const styleSheet of document.styleSheets) {
     for (const rule of styleSheet.cssRules) {
-      if (cssRule === rule.selectorText) bool = true;
+      if (cssRule === rule.selectorText) cssExists = true;
     }
   }
-  return bool;
+  return cssExists;
 }
 
 function cleanString(str) {
